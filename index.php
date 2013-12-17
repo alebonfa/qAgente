@@ -7,7 +7,7 @@
 	<div data-role="page" id="pageone">
 
 		<div data-role="header" data-position="fixed">
-			<h1>Login - <?php echo $page; ?></h1>
+			<h1>Login</h1>
 		</div>
 		<div data-role="content">
 			<div id='logo'>

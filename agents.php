@@ -1,5 +1,12 @@
 <?php
 	$page = 'agents';
+
+	require 'php/conn.php';
+
+	$sql = "SELECT * FROM ageadusuarios AS u " ;
+	$sql .= "ORDER BY u.nome ";
+	$rsAgentes = mysql_query($sql, $conn);
+
 ?>
 
 <?php require 'elements/header.php' ?>
@@ -7,7 +14,7 @@
 	<div data-role="page" id="pageone">
 
 		<div data-role="header" data-position="fixed">
-			<h1>Registro de Agente - <?php echo $_SESSION['agentName'] . ' ' . $_SESSION['agentCat'] ; ?></h1>
+			<h1>Agentes</h1>
 		</div>
 		<div data-role="content">
 			<div id='logo'>
@@ -27,8 +34,24 @@
 					</div>
 				</form>
 				<input type="button" id="btnCadastrar" value="Cadastrar">
-
 			</div>
+
+			<div data-role="collapsible">
+				<h3>Agentes Cadastrados</h3>
+				<ul data-role="listview">
+					<?php
+						if(@mysql_num_rows($rsAgentes)>0) {
+							while($row = mysql_fetch_array($rsAgentes)) {
+					?>
+								<li id='agenteid_'+<?php echo $row['id'] ?>><?php echo $row['nome'] ?></li>
+					<?php
+							}
+						}
+					?>
+				</ul>
+			</div>
+
+
 		</div>
 
 

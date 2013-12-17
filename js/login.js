@@ -22,12 +22,12 @@ $(document).ready(function(){
     });
 
     function alertSignupError(msg) {
-        alert('Usuário ou Senha Incorretos!');
+        // alert('Usuário ou Senha Incorretos!');
     }
 
     function alertSignupSuccess(msg) {
-        alert('Agente Registrado com Sucesso!');
-        window.location.href="agents.php";
+        // alert('Agente Registrado com Sucesso!');
+        window.location.href="enrollments.php";
     }
 
 });

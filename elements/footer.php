@@ -1,18 +1,18 @@
 		<div data-role="footer">
 			<div data-role="navbar" data-position="fixed" data-id="mainMenu">
-				<ul onclick="window.location.reload(true);">
+				<ul>
 					<?php if(isset($_SESSION["agentCat"])) { ?>
-						<li><a href='index.php' data-icon="home" data-transition="slidefade">Logout</a></li>
+						<li onclick="window.location.reload(true);"><a href='index.php' data-icon="home" data-transition="slidefade">Logout</a></li>
 					<?php } else { ?>
 						<li><a href='index.php' data-icon="home" data-transition="slidefade">Login</a></li>
 					<?php } ?>
 					<li><a href='enrollments.php' data-icon="grid" data-transition="slidefade">Matrícula</a></li>
-					<li><a href='#' data-icon="star" data-transition="slidefade">Relatório</a></li>
+					<li><a href='report.php' data-icon="star" data-transition="slidefade">Relatório</a></li>
 					<?php if(isset($_SESSION["agentCat"])) { 
 						if($_SESSION["agentCat"] == 'SuperAgente') { 
 					?>
-							<li><a href='agents.php' data-icon="bars" data-transition="slidefade">Agentes</a></li>
 							<li><a href='courses.php' data-icon="info" data-transition="slidefade">Cursos</a></li>
+							<li><a href='agents.php' data-icon="bars" data-transition="slidefade">Agentes</a></li>
 						<?php } ?>
 					<?php } ?>
 				</ul>
@@ -29,6 +29,12 @@
 	<?php } ?>
 	<?php if($page == 'agents') { ?>
 	    <script src="js/agents.js"></script>
+	<?php } ?>
+	<?php if($page == 'courses') { ?>
+	    <script src="js/courses.js"></script>
+	<?php } ?>
+	<?php if($page == 'enrollments') { ?>
+	    <script src="js/enrollments.js"></script>
 	<?php } ?>
 
 </body>

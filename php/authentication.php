@@ -16,11 +16,13 @@
 
 	$search = mysql_query($sql, $conn);
 	if(@mysql_num_rows($search)==0) {
+        unset($_SESSION['agentID']);
         unset($_SESSION['agentName']);
         unset($_SESSION['agentCat']);
 		$auth = array("failed","Deu errado!");
 	} else {
 		while($row = mysql_fetch_array($search)) {
+	        $_SESSION['agentID'] = $row['id'];
 	        $_SESSION['agentName'] = $row['nome'];
 	        $_SESSION['agentCat'] = $row['categoria'];
 		}
