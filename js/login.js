@@ -16,7 +16,7 @@ $(document).ready(function(){
                 }
             });
         } else {
-            $("#sbmCadastrar").trigger("click");
+            $("#sbmLogar").trigger("click");
         }
         
     });

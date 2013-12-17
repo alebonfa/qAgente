@@ -20,8 +20,10 @@
         unset($_SESSION['agentCat']);
 		$auth = array("failed","Deu errado!");
 	} else {
-        $_SESSION['agentName'] = 'Choba de Frutas';
-        $_SESSION['agentCat'] = 'SuperAgente';
+		while($row = mysql_fetch_array($search)) {
+	        $_SESSION['agentName'] = $row['nome'];
+	        $_SESSION['agentCat'] = $row['categoria'];
+		}
 		$auth = array("success","Deu certo!");
 	}
 

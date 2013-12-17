@@ -1,14 +1,13 @@
 <?php
-	session_start("agead");
 	$page = 'login';
 ?>
 
-<?php require 'elements/header.php' ?>
+<?php require_once 'elements/header.php' ?>
 
 	<div data-role="page" id="pageone">
 
 		<div data-role="header" data-position="fixed">
-			<h1>Login</h1>
+			<h1>Login - <?php echo $page; ?></h1>
 		</div>
 		<div data-role="content">
 			<div id='logo'>
@@ -16,10 +15,10 @@
 			</div>
 			<div>
 				<form id="frmLogin" action="php/authentication.php" method="post" autocomplete="off">
-					<input type="text" name="agentEmail" id="agentEmail" value="" placeholder="email"/>
-					<input type="password" name="agentPwd" id="agentPwd" value="" placeholder="Senha"/>
+					<input type="email" name="agentEmail" id="agentEmail" value="" placeholder="email" required/>
+					<input type="password" name="agentPwd" id="agentPwd" value="" placeholder="Senha" required/>
 					<div style="display:none">
-						<input type="submit" value="Entrar"/>
+						<input type="submit" id="sbmLogar" value="Entrar"/>
 					</div>
 				</form>
 				<input type="button" id="btnLogar" value="Entrar">
@@ -27,4 +26,4 @@
 			<div id="msg"></div>
 		</div>
 
-<?php require 'elements/footer.php' ?>
+<?php require_once 'elements/footer.php' ?>

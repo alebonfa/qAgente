@@ -17,10 +17,10 @@
 
 	$rs = mysql_query($sql, $conn);
 	if($rs === FALSE) {
-		$reg = array("status"=>"failed");
+		$reg = array("failed");
 		die(mysql_error());
 	} else {
-		$reg = array("status"=>"success");
+		$reg = array("success");
 	}
 
 	echo json_encode($reg);

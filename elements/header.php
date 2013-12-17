@@ -1,9 +1,17 @@
 <?php
 	session_start("agead");
 	if($page != 'login') {
-		if(!isset($_SESSION["user"])) {
-			header("Location: index.php");
-			exit();
+		if(!isset($_SESSION["agentCat"])) {
+			ob_start();
+			while (ob_get_status()) {
+				ob_end_clean();
+			}
+			header('Location: http://localhost:81/qAgente/index.php', false);
+			die();
+		}
+	} else {
+		if(isset($_SESSION['agentCat'])) {
+			$_SESSION = array();
 		}
 	}
 ?>
